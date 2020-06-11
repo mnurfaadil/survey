@@ -55,10 +55,8 @@ class ConfigController extends Controller
         
         $cek = Config::find(1);
         
-        // $header_name = $request->header->hashName();
-        // $footer_name = $request->footer->hashName();
-        $header_name = $request->header->hashName();
-        $footer_name = $request->footer->hashName();
+        $header_name = str_replace(" ", "_", $request->header->getClientOriginalName());
+        $footer_name = str_replace(" ", "_", $request->footer->getClientOriginalName());
 
         if (!$cek) {
 
@@ -215,10 +213,7 @@ class ConfigController extends Controller
      */
     public function download($filename)
     {
-        $string = "OKE BOS CEK SON";
-        $string_custom = str_replace(" ", "_", $string);
-        return "$string - $string_custom";
-        // return response()
-        //     ->file($this->_folder."/$filename");
+        return response()
+            ->file($this->_folder."/$filename");
     }
 }
