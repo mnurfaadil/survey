@@ -55,6 +55,8 @@ class ConfigController extends Controller
         
         $cek = Config::find(1);
         
+        // $header_name = $request->header->hashName();
+        // $footer_name = $request->footer->hashName();
         $header_name = $request->header->hashName();
         $footer_name = $request->footer->hashName();
 
@@ -213,7 +215,8 @@ class ConfigController extends Controller
      */
     public function download($filename)
     {
-        return response()
-            ->file($this->_folder."/$filename");
+        return "OKE BOS";
+        // return response()
+        //     ->file($this->_folder."/$filename");
     }
 }
