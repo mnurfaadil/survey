@@ -204,4 +204,18 @@ class ConfigController extends Controller
             ];
         }
     }
+
+    /**
+     * Download the specified image resource from storage.
+     *
+     * @param  Filename $filename
+     * @return \Illuminate\Http\Response
+     */
+    public function download($filename)
+    {
+        return [
+            'message' => $filename,
+            'code' => $this->_success_status,
+        ];
+    }
 }

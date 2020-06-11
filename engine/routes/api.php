@@ -21,6 +21,7 @@ Route::middleware('auth:api')
 Route::group(['middleware' => 'auth:api', 'namespace' => 'API'], function(){
     //Config
     Route::resource('config', 'ConfigController');
+    Route::get('config/image/{filename}', 'ConfigController@download')->name('config.download');
 
     //Report
 
