@@ -20,7 +20,7 @@ Route::middleware('auth:api')
     });
 Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function(){
     //Config
-    Route::resource('config', 'ConfigController');
+    Route::resource('config', 'API/ConfigController');
 
     //Report
 
