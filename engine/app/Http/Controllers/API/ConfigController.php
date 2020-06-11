@@ -215,7 +215,9 @@ class ConfigController extends Controller
      */
     public function download($filename)
     {
-        return "OKE BOS";
+        $string = "OKE BOS CEK SON";
+        $string_custom = str_replace(" ", "_", $string);
+        return "$string - $string_custom";
         // return response()
         //     ->file($this->_folder."/$filename");
     }
