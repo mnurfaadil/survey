@@ -54,13 +54,11 @@ class ConfigController extends Controller
         $this->validate($request, Config::rules(false));
         
         $cek = Config::get();
-        
-        return $cek;
 
         $header_name = str_replace(" ", "_", $request->header->getClientOriginalName());
         $footer_name = str_replace(" ", "_", $request->footer->getClientOriginalName());
 
-        if (!$cek) {
+        if (count($cek) < 1) {
 
             $create = Config::create([
                 'header' => $header_name,
@@ -84,7 +82,7 @@ class ConfigController extends Controller
                 ];
             }
         } else {
-            
+            $cek = $cek[0];
             //Hapus data header sebelumnya
             if($cek->header != null ){
                 try {
