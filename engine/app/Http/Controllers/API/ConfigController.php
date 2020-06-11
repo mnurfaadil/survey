@@ -213,6 +213,7 @@ class ConfigController extends Controller
      */
     public function download($filename)
     {
-        return response()->download($this->_folder."/$filename", 'Config Image');
+        return response()
+            ->file($this->_folder."/$filename");
     }
 }
