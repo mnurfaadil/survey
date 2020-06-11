@@ -53,8 +53,10 @@ class ConfigController extends Controller
     {
         $this->validate($request, Config::rules(false));
         
-        $cek = Config::where('header','LIKE',"'%%'")->first();
+        $cek = Config::get();
         
+        return $cek;
+
         $header_name = str_replace(" ", "_", $request->header->getClientOriginalName());
         $footer_name = str_replace(" ", "_", $request->footer->getClientOriginalName());
 
