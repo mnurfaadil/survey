@@ -53,12 +53,12 @@ class ConfigController extends Controller
     {
         $this->validate($request, Config::rules(false));
         
-        $cek = Config::find(1);
+        $cek = Config::first();
         
         $header_name = str_replace(" ", "_", $request->header->getClientOriginalName());
         $footer_name = str_replace(" ", "_", $request->footer->getClientOriginalName());
 
-        if (!$cek) {
+        if ($cek->count() < 1) {
 
             $create = Config::create([
                 'header' => $header_name,
