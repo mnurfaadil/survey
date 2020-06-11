@@ -58,7 +58,7 @@ class ConfigController extends Controller
         $header_name = str_replace(" ", "_", $request->header->getClientOriginalName());
         $footer_name = str_replace(" ", "_", $request->footer->getClientOriginalName());
 
-        if ($cek->count() < 1) {
+        if (!$cek) {
 
             $create = Config::create([
                 'header' => $header_name,
